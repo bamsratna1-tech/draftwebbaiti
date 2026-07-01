@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Baiti Property | Harijanto, SE. - Konsultan Properti Sidoarjo</title>
+    <meta name="description" content="Baiti Property oleh Harijanto, SE. Konsultan properti terpercaya di Sidoarjo. Melayani Jual/Beli, Lelang, AYDA, Wakaf, dan Analisa Keuangan Property.">
+    <meta name="keywords" content="Agen properti Sidoarjo, Jual beli rumah Sidoarjo, Lelang rumah Sidoarjo, Baiti Property, Harijanto SE, Konsultan Properti Sidoarjo, Wakaf properti, AYDA">
+    <meta name="author" content="Harijanto, SE.">
+    <meta name="robots" content="index, follow">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Plus Jakarta Sans for ultra-modern body text, Playfair for luxury headers -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',    // Slate 900 - Elegant Dark
+                            gold: '#b45309',    // Amber 700 - Luxury Gold
+                            light: '#f8fafc',   // Slate 50 - Off white
+                            surface: '#ffffff',
+                            accent: '#22c55e'   // WA Green
+                        }
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(15, 23, 42, 0.05)',
+                        'float': '0 20px 40px -10px rgba(0,0,0,0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Styling */
+        body {
+            background-color: #f8fafc;
+            color: #334155; /* Slate 700 */
+        }
+
+        /* Super Smooth Scroll Reveal (Cinematic Swing/Fade) */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(60px) scale(0.98);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); /* Easing eksklusif ala Apple */
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Staggered delays */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+
+        /* The Merge Animation for Hero Text */
+        @keyframes merge-left {
+            0% { opacity: 0; transform: translateX(-40vw) skewX(10deg); filter: blur(10px); }
+            70% { transform: translateX(15px) skewX(0); filter: blur(0); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes merge-right {
+            0% { opacity: 0; transform: translateX(40vw) skewX(-10deg); filter: blur(10px); }
+            70% { transform: translateX(-15px) skewX(0); filter: blur(0); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        .animate-merge-left {
+            display: inline-block;
+            animation: merge-left 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .animate-merge-right {
+            display: inline-block;
+            animation: merge-right 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        /* Modern Image Hover Effects */
+        .img-hover-wrap { overflow: hidden; }
+        .img-hover-wrap img {
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .listing-card:hover .img-hover-wrap img {
+            transform: scale(1.08);
+        }
+
+        /* Floating Button Animation */
+        @keyframes float-btn {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-8px) scale(1.05); }
+        }
+        .wa-float {
+            animation: float-btn 3s infinite ease-in-out;
+        }
+
+        /* Glassmorphism utility */
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-brand-gold selection:text-white overflow-x-hidden">
+
+    <div class="fixed w-full z-50 top-4 px-4 sm:px-6 flex justify-center">
+        <nav class="w-full max-w-5xl glass rounded-full shadow-glass px-6 py-3 transition-all duration-300 flex justify-between items-center" id="navbar">
+            <!-- Logo -->
+            <a href="#" class="font-serif text-xl md:text-2xl font-bold text-brand-dark tracking-tight">
+                Baiti<span class="text-brand-gold"> Property</span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#beranda" class="text-sm font-semibold text-slate-600 hover:text-brand-dark transition-colors">Beranda</a>
+                <a href="#tentang" class="text-sm font-semibold text-slate-600 hover:text-brand-dark transition-colors">Profil</a>
+                <a href="#layanan" class="text-sm font-semibold text-slate-600 hover:text-brand-dark transition-colors">Layanan</a>
+                <a href="#listing" class="text-sm font-semibold text-slate-600 hover:text-brand-dark transition-colors">Listing</a>
+            </div>
+
+            <!-- CTA & Mobile Toggle -->
+            <div class="flex items-center gap-4">
+                <a href="#kontak" class="hidden md:inline-flex items-center justify-center bg-brand-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-gold transition-all duration-300">
+                    Hubungi Saya
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden text-brand-dark focus:outline-none p-2">
+                    <i class="fas fa-grip-lines text-xl"></i>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-brand-dark/95 backdrop-blur-md z-40 hidden flex-col items-center justify-center space-y-8 opacity-0 transition-opacity duration-300">
+        <button id="close-menu-btn" class="absolute top-8 right-8 text-white text-3xl">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="#beranda" class="mobile-link text-3xl font-serif text-white hover:text-brand-gold transition-colors">Beranda</a>
+        <a href="#tentang" class="mobile-link text-3xl font-serif text-white hover:text-brand-gold transition-colors">Profil</a>
+        <a href="#layanan" class="mobile-link text-3xl font-serif text-white hover:text-brand-gold transition-colors">Layanan</a>
+        <a href="#listing" class="mobile-link text-3xl font-serif text-white hover:text-brand-gold transition-colors">Listing</a>
+        <a href="#kontak" class="mobile-link mt-8 bg-brand-gold text-white px-8 py-3 rounded-full text-lg font-medium">Hubungi Saya</a>
+    </div>
+
+    <section id="beranda" class="relative w-full h-screen min-h-[700px] flex items-center bg-brand-dark">
+        <!-- Background Image (Luxury Architecture) -->
+        <div class="absolute inset-0 w-full h-full">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80" alt="Luxury Property" class="w-full h-full object-cover opacity-60" loading="lazy">
+            <!-- Sleek Gradient Overlay: Dark on left to transparent on right -->
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/80 to-transparent"></div>
+            <!-- Bottom gradient for smooth transition to next section -->
+            <div class="absolute bottom-0 w-full h-32 bg-gradient-to-t from-brand-light to-transparent"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-16">
+            <div class="max-w-3xl">
+                <!-- Tiny Intro Badge -->
+                <div class="overflow-hidden mb-6">
+                    <span class="inline-block px-4 py-1.5 rounded-full border border-brand-gold/40 glass-dark text-brand-gold text-xs font-bold tracking-[0.2em] uppercase transform translate-y-full animate-[slideUp_0.8s_ease-out_forwards_0.5s]">
+                        Baiti Property
+                    </span>
+                </div>
+                
+                <!-- The Merging Heading -->
+                <h1 class="text-white font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.1] mb-6">
+                    <span class="block overflow-hidden pb-2">
+                        <span class="animate-merge-left">Wujudkan</span>
+                    </span>
+                    <span class="block overflow-hidden pb-2">
+                        <span class="animate-merge-right">Properti Impian</span>
+                    </span>
+                    <span class="block overflow-hidden text-brand-gold pb-2">
+                        <span class="animate-merge-left" style="animation-delay: 0.2s;">& Investasi.</span>
+                    </span>
+                </h1>
+                
+                <p class="text-slate-300 text-lg md:text-xl font-light mb-10 max-w-xl leading-relaxed reveal-on-scroll delay-300">
+                    Bersama <strong class="text-white font-medium">Harijanto, SE.</strong> Konsultan berdedikasi untuk Jual/Beli, Lelang, dan Analisa Keuangan Properti yang presisi.
+                </p>
+                
+                <div class="flex flex-wrap gap-4 reveal-on-scroll delay-400">
+                    <a href="#listing" class="bg-white text-brand-dark font-bold px-8 py-4 rounded-full hover:bg-brand-gold hover:text-white transition-all duration-300 shadow-float">
+                        Eksplorasi Listing
+                    </a>
+                    <a href="https://wa.me/6281234567890" target="_blank" class="flex items-center gap-3 glass-dark text-white font-medium px-8 py-4 rounded-full hover:bg-brand-dark transition-all duration-300">
+                        <i class="fab fa-whatsapp text-brand-accent text-xl"></i> Konsultasi Gratis
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce opacity-70">
+            <span class="text-white text-xs uppercase tracking-widest mb-2 font-medium">Scroll</span>
+            <i class="fas fa-chevron-down text-white"></i>
+        </div>
+    </section>
+
+    <!-- Keyframes for tiny intro badge -->
+    <style>
+        @keyframes slideUp { to { transform: translateY(0); } }
+    </style>
+
+    <section id="tentang" class="py-24 md:py-32 bg-brand-light relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                
+                <!-- Content Side -->
+                <div class="lg:col-span-5 lg:col-start-1 reveal-on-scroll order-2 lg:order-1">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-[1px] bg-brand-gold"></div>
+                        <span class="text-brand-gold font-bold uppercase tracking-widest text-xs">Profil Konsultan</span>
+                    </div>
+                    
+                    <h2 class="font-serif text-4xl md:text-5xl text-brand-dark font-bold mb-6 leading-tight">
+                        Harijanto, SE.
+                    </h2>
+                    
+                    <h3 class="text-xl text-slate-500 font-medium mb-8">Founder of Baiti Property</h3>
+                    
+                    <div class="space-y-6 text-slate-600 leading-relaxed font-light">
+                        <p>
+                            Dalam dunia properti, keputusan yang tepat berawal dari analisa yang akurat. Sebagai konsultan independen, dedikasi saya adalah memastikan setiap langkah investasi maupun akuisisi hunian Anda memiliki dasar finansial dan legalitas yang solid.
+                        </p>
+                        <p>
+                            Berbasis di Pondok Jati, Sidoarjo, kami mengutamakan asas <strong>Amanah, Transparan, dan Profesional</strong>. Kami bukan sekadar perantara, melainkan penasihat strategis Anda.
+                        </p>
+                    </div>
+
+                    <div class="mt-10 grid grid-cols-2 gap-6 pt-8 border-t border-slate-200">
+                    <div>
+                        <p class="text-4xl font-serif text-brand-dark mb-1">100+</p>
+                        <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Transaksi Sukses</p>
+                    </div>
+                    <div>
+                        <p class="text-4xl font-serif text-brand-dark mb-1">100%</p>
+                        <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Amanah & Terpercaya</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Side (Overlapping / Magazine style) -->
+            <div class="lg:col-span-6 lg:col-end-13 reveal-on-scroll delay-200 order-1 lg:order-2 relative">
+                <!-- Decorative Arch Frame -->
+                <div class="relative max-w-md mx-auto lg:ml-auto lg:mr-0 mt-8 lg:mt-0">
+                    <!-- Back gold border/accent -->
+                    <div class="absolute -inset-4 border-2 border-brand-gold/40 rounded-t-[10rem] rounded-b-3xl -z-10 translate-x-4 translate-y-4"></div>
+                    
+                    <!-- Main image container with Arch shape -->
+                    <div class="relative rounded-t-[10rem] rounded-b-3xl overflow-hidden shadow-2xl bg-white p-2 border border-slate-100">
+                        <div class="rounded-t-[10rem] rounded-b-2xl overflow-hidden relative group">
+                            <!-- Foto Dummy Harijanto SE -->
+                            <img src="aset/profile.jpeg" alt="Harijanto SE" class="w-full h-auto aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                            <!-- Glass overlay text -->
+                           <div class="absolute bottom-4 left-4 right-4 glass p-4 rounded-2xl text-center transform translate-y-2 opacity-90 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 flex flex-col items-center justify-center">
+                            <span class="text-brand-gold text-[10px] font-bold uppercase tracking-widest mb-1">Harijanto, SE.</span>
+                            <p class="font-sans font-bold text-brand-dark text-sm leading-snug">Konsultan Properti Berpengalaman</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <section id="layanan" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-20 reveal-on-scroll">
+                <span class="text-brand-gold font-bold uppercase tracking-widest text-xs block mb-3">Keahlian Kami</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-brand-dark font-bold">Layanan Komprehensif</h2>
+            </div>
+
+            <!-- Bento-style Grid -->
+            <!-- Bento-style Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Service 1 -->
+                <div class="p-8 rounded-3xl bg-brand-dark border border-white/5 shadow-lg hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(15,23,42,0.4)] transition-all duration-500 reveal-on-scroll">
+                    <div class="w-14 h-14 rounded-2xl bg-white/10 text-brand-gold flex items-center justify-center text-2xl mb-8">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Jual / Beli Properti</h3>
+                    <p class="text-slate-300 font-light leading-relaxed">Pendampingan hulu ke hilir untuk rumah, ruko, tanah, hingga apartemen. Negosiasi tajam, legalitas terjamin.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="p-8 rounded-3xl bg-brand-dark border border-white/5 shadow-lg hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(15,23,42,0.4)] transition-all duration-500 reveal-on-scroll delay-100">
+                    <div class="w-14 h-14 rounded-2xl bg-white/10 text-brand-gold flex items-center justify-center text-2xl mb-8">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Aset Lelang</h3>
+                    <p class="text-slate-300 font-light leading-relaxed">Strategi cerdas mendapatkan aset berkualitas tinggi jauh di bawah harga pasar melalui prosedur lelang resmi.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="p-8 rounded-3xl bg-brand-dark border border-white/5 shadow-lg hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(15,23,42,0.4)] transition-all duration-500 reveal-on-scroll delay-200">
+                    <div class="w-14 h-14 rounded-2xl bg-white/10 text-brand-gold flex items-center justify-center text-2xl mb-8">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Penyelesaian AYDA</h3>
+                    <p class="text-slate-300 font-light leading-relaxed">Konsultasi profesional menangani Agunan Yang Diambil Alih perbankan. Solusi *win-win* dan sesuai hukum.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="p-8 rounded-3xl bg-brand-dark border border-white/5 shadow-lg hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(15,23,42,0.4)] transition-all duration-500 reveal-on-scroll lg:col-span-2">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-gold text-white flex items-center justify-center text-2xl mb-8">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Analisa Keuangan & KPR</h3>
+                    <p class="text-slate-300 font-light leading-relaxed max-w-2xl">Kami membedah kelayakan finansial, Return on Investment (ROI), serta struktur pembiayaan KPR terbaik agar arus kas (cashflow) Anda tetap sehat setelah akuisisi properti.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="p-8 rounded-3xl bg-brand-dark border border-white/5 shadow-lg hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(15,23,42,0.4)] transition-all duration-500 reveal-on-scroll delay-100">
+                    <div class="w-14 h-14 rounded-2xl bg-white/10 text-brand-gold flex items-center justify-center text-2xl mb-8">
+                        <i class="fas fa-hands-holding-circle"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Wakaf Properti</h3>
+                    <p class="text-slate-300 font-light leading-relaxed">Menjembatani niat mulia Anda dalam menyalurkan aset sebagai wakaf produktif dengan panduan legalitas yang sah.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="listing" class="py-24 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 reveal-on-scroll">
+                <div>
+                    <span class="text-brand-gold font-bold uppercase tracking-widest text-xs block mb-3">Portfolio Tersedia</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-brand-dark font-bold">Listing Eksklusif</h2>
+                </div>
+                <a href="https://wa.me/6282229302442" target="_blank" class="text-sm font-semibold text-brand-dark hover:text-brand-gold transition-colors border-b-2 border-brand-dark hover:border-brand-gold pb-1">
+                    Request Tipe Lainnya &rarr;
+                </a>
+            </div>
+
+            <!-- Modern Card Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Listing 1 (Premium Width on large screens) -->
+            <div class="listing-card bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-float transition-shadow duration-500 reveal-on-scroll lg:col-span-2 relative group flex flex-col sm:flex-row">
+                <div class="img-hover-wrap relative w-full sm:w-1/2 h-72 sm:h-auto">
+                    <!-- Gambar Rumah Mewah Dummy Baru -->
+                    <img src="aset/gudang.jpeg" alt="Rumah Mewah" class="w-full h-full object-cover" loading="lazy">
+                    <div class="absolute top-4 left-4 bg-brand-dark text-white text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full shadow-lg">Hot Deal</div>
+                </div>
+                <div class="p-8 sm:w-1/2 flex flex-col justify-center">
+                        <p class="text-brand-gold text-sm font-bold mb-2"><i class="fas fa-map-marker-alt mr-2"></i>Gudang Seruni, Sidoarjo</p>
+                        <h3 class="text-2xl font-serif font-bold text-brand-dark mb-4">Peruntukan Gudang Peyimpanan</h3>
+                        
+                        <div class="flex flex-wrap gap-4 text-sm text-slate-500 mb-8 border-y border-slate-100 py-4">
+                            <span class="flex items-center"><i class="fas fa-bed text-brand-dark mr-2"></i>2 KT</span>
+                            <span class="flex items-center"><i class="fas fa-bath text-brand-dark mr-2"></i>1 KM</span>
+                            <span class="flex items-center"><i class="fas fa-expand text-brand-dark mr-2"></i>420 m²</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between mt-auto">
+                            <div>
+                                <p class="text-xs text-slate-400 uppercase tracking-wider mb-1">Harga Penawaran</p>
+                                <p class="text-2xl font-bold text-brand-dark">Rp 1.2 Miliar</p>
+                            </div>
+                            <!-- Minimalist Modern WA Button -->
+                            <a href="https://wa.me/6282229302442?text=Halo%20Pak%20Harijanto,%20saya%20tertarik%20dengan%20Rumah%20Mewah%20Pondok%20Jati." target="_blank" class="w-12 h-12 rounded-full bg-brand-accent/10 text-brand-accent flex items-center justify-center hover:bg-brand-accent hover:text-white transition-colors duration-300">
+                                <i class="fab fa-whatsapp text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Listing 2 -->
+                <div class="listing-card bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-float transition-shadow duration-500 reveal-on-scroll">
+                    <div class="img-hover-wrap relative h-64">
+                        <img src="aset/kota1.jpeg" alt="Rumah Minimalis" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <p class="text-brand-gold text-xs font-bold mb-2"><i class="fas fa-map-marker-alt mr-2"></i>Sidoarjo Kota</p>
+                        <h3 class="text-xl font-serif font-bold text-brand-dark mb-4 leading-snug">Rumah Dekat Akses Jalan Raya</h3>
+                        
+                        <div class="flex flex-wrap gap-4 text-sm text-slate-500 mb-6 border-b border-slate-100 pb-4">
+                            <span class="flex items-center"><i class="fas fa-bed text-slate-300 mr-2"></i>3 KT</span>
+                            <span class="flex items-center"><i class="fas fa-bath text-slate-300 mr-2"></i>2 KM</span>
+                            <span class="flex items-center"><i class="fas fa-expand text-slate-300 mr-2"></i>600 m²</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <p class="text-xl font-bold text-brand-dark">Rp 950 Juta</p>
+                            <a href="https://wa.me/62 82229302442?text=Halo%20Pak%20Harijanto,%20saya%20tertarik%20dengan%20Rumah%20Minimalis%20Sidoarjo%20Kota." target="_blank" class="text-sm font-semibold text-brand-accent flex items-center hover:text-green-700 transition-colors">
+                                Tanya <i class="fab fa-whatsapp ml-1 text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Listing 3 -->
+                <div class="listing-card bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-float transition-shadow duration-500 reveal-on-scroll delay-100">
+                    <div class="img-hover-wrap relative h-64">
+                        <img src="aset/kota2.jpeg" alt="Ruko" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute top-4 left-4 bg-brand-gold text-white text-xs font-bold tracking-widest uppercase px-3 py-1.5 rounded-full">Siap Huni</div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-brand-gold text-xs font-bold mb-2"><i class="fas fa-map-marker-alt mr-2"></i>Sidoarjo Kota</p>
+                        <h3 class="text-xl font-serif font-bold text-brand-dark mb-4 leading-snug">Rumah Strategis dekat Pusat Kota</h3>
+                        
+                        <div class="flex flex-wrap gap-4 text-sm text-slate-500 mb-6 border-b border-slate-100 pb-4">
+                            <span class="flex items-center"><i class="fas fa-building text-slate-300 mr-2"></i>3 Lt</span>
+                            <span class="flex items-center"><i class="fas fa-car text-slate-300 mr-2"></i>Parkir Luas</span>
+                            <span class="flex items-center"><i class="fas fa-expand text-slate-300 mr-2"></i>200 m²</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <p class="text-xl font-bold text-brand-dark">Rp 2.5 M</p>
+                            <a href="https://wa.me/6282229302442?text=Halo%20Pak%20Harijanto,%20tertarik%20dengan%20Ruko%20Waru." target="_blank" class="text-sm font-semibold text-brand-accent flex items-center hover:text-green-700 transition-colors">
+                                Tanya <i class="fab fa-whatsapp ml-1 text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Listing 4 -->
+                <div class="listing-card bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-float transition-shadow duration-500 reveal-on-scroll delay-200">
+                    <div class="img-hover-wrap relative h-64">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzCNzWFzwU6vSHW7KTS_xMUpGBXSVaw1uKAsloVVmXpynsAxb3cW1v5tjT&s=10" alt="Kavling" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <p class="text-brand-gold text-xs font-bold mb-2"><i class="fas fa-map-marker-alt mr-2"></i>Aloha, Sidoarjo</p>
+                        <h3 class="text-xl font-serif font-bold text-brand-dark mb-4 leading-snug">Tanah Kavling Premium Siap Bangun</h3>
+                        
+                        <div class="flex flex-wrap gap-4 text-sm text-slate-500 mb-6 border-b border-slate-100 pb-4">
+                            <span class="flex items-center"><i class="fas fa-file-contract text-slate-300 mr-2"></i>SHM</span>
+                            <span class="flex items-center"><i class="fas fa-road text-slate-300 mr-2"></i>Row 8m</span>
+                            <span class="flex items-center"><i class="fas fa-expand text-slate-300 mr-2"></i>150 m²</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <p class="text-xl font-bold text-brand-dark">Rp 450 Juta</p>
+                            <a href="https://wa.me/6282229302442?text=Halo%20Pak%20Harijanto,%20tertarik%20Tanah%20Kavling%20Buduran." target="_blank" class="text-sm font-semibold text-brand-accent flex items-center hover:text-green-700 transition-colors">
+                                Tanya <i class="fab fa-whatsapp ml-1 text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Listing 5 (Lelang) -->
+                <div class="listing-card bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-float transition-shadow duration-500 reveal-on-scroll">
+                    <div class="img-hover-wrap relative h-64">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYb0VIlLRmCPgVWKpmscIbqFnOqplAgQrViKKmxq2RzLWpn63AXhFUnAgm&s=10" alt="Lelang" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute top-4 right-4 bg-red-600/90 backdrop-blur-sm text-white text-xs font-bold tracking-widest uppercase px-3 py-1.5 rounded-full border border-red-400/50">Aset Lelang</div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-brand-gold text-xs font-bold mb-2"><i class="fas fa-map-marker-alt mr-2"></i>Candi, Sidoarjo</p>
+                        <h3 class="text-xl font-serif font-bold text-brand-dark mb-4 leading-snug">Rumah Tinggal Lelang (Bawah Harga Pasar)</h3>
+                        
+                        <div class="flex flex-wrap gap-4 text-sm text-slate-500 mb-6 border-b border-slate-100 pb-4">
+                            <span class="flex items-center"><i class="fas fa-home text-slate-300 mr-2"></i>Residensial</span>
+                            <span class="flex items-center"><i class="fas fa-gavel text-slate-300 mr-2"></i>Ready</span>
+                            <span class="flex items-center"><i class="fas fa-expand text-slate-300 mr-2"></i>90 m²</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-[10px] text-slate-400 uppercase tracking-wider mb-0.5">Limit Lelang</p>
+                                <p class="text-xl font-bold text-brand-dark">Rp 300 Juta</p>
+                            </div>
+                            <a href="https://wa.me/6282229302442?text=Halo%20Pak%20Harijanto,%20info%20Aset%20Lelang%20Candi." target="_blank" class="text-sm font-semibold text-brand-accent flex items-center hover:text-green-700 transition-colors">
+                                Tanya <i class="fab fa-whatsapp ml-1 text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="kontak" class="bg-brand-dark text-white border-t border-white/10 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+                
+                <!-- Brand Profile -->
+                <div class="lg:col-span-4 reveal-on-scroll">
+                    <a href="#" class="font-serif text-3xl font-bold text-white tracking-tight block mb-6">
+                        Baiti Property<span class="text-brand-gold">.</span>
+                    </a>
+                    <p class="text-slate-400 font-light leading-relaxed mb-8 pr-4">
+                        Mitra eksklusif Anda dalam pengelolaan aset, akuisisi hunian, hingga analisa finansial properti dengan dedikasi penuh di wilayah Sidoarjo dan sekitarnya.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 text-slate-300">
+                            <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-brand-gold"></i>
+                            </div>
+                            <p class="font-light pt-2">Pondok Jati, Kec. Sidoarjo,<br>Kab. Sidoarjo, Jawa Timur</p>
+                        </div>
+                        <div class="flex items-center gap-4 text-slate-300">
+                            <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-user-tie text-brand-gold"></i>
+                            </div>
+                            <p class="font-light">Harijanto, SE.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Connect Links -->
+                <div class="lg:col-span-3 lg:col-start-6 reveal-on-scroll delay-100">
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-slate-500 mb-6">Connect With Us</h4>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="#" class="group flex items-center text-slate-300 hover:text-white transition-colors">
+                                <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center mr-3 group-hover:bg-blue-600 transition-colors">
+                                    <i class="fab fa-facebook-f text-sm"></i>
+                                </div>
+                                Facebook
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="group flex items-center text-slate-300 hover:text-white transition-colors">
+                                <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center mr-3 group-hover:bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-500 transition-colors">
+                                    <i class="fab fa-instagram text-sm"></i>
+                                </div>
+                                Instagram
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="group flex items-center text-slate-300 hover:text-white transition-colors">
+                                <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center mr-3 group-hover:bg-black group-hover:text-white transition-colors">
+                                    <i class="fab fa-tiktok text-sm"></i>
+                                </div>
+                                TikTok
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:emailklien@gmail.com" class="group flex items-center text-slate-300 hover:text-white transition-colors">
+                                <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center mr-3 group-hover:bg-brand-gold transition-colors">
+                                    <i class="fas fa-envelope text-sm"></i>
+                                </div>
+                                Email Kami
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Embedded Maps -->
+       <div class="lg:col-span-4 reveal-on-scroll delay-200">
+                <h4 class="text-sm font-bold uppercase tracking-widest text-slate-500 mb-6">Visit Our Office</h4>
+                <div class="w-full h-56 rounded-2xl overflow-hidden border border-white/10 relative group bg-white/5 p-1">
+                    <div class="w-full h-full rounded-xl overflow-hidden relative">
+                        <!-- Tombol Buka di Maps menggunakan Link aslimu -->
+                        <a href="https://maps.app.goo.gl/F5cuBAnQsfWU23Wf8" target="_blank" class="absolute inset-0 bg-brand-dark/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10 cursor-pointer backdrop-blur-[2px]">
+                            <span class="bg-brand-dark text-white text-sm font-semibold px-5 py-2.5 rounded-full border border-white/20 shadow-lg hover:bg-brand-gold transition-colors flex items-center gap-2">
+                                <i class="fas fa-external-link-alt"></i> Buka Titik Maps
+                            </span>
+                        </a>
+                        <!-- Maps iframe dengan format universal anti-error -->
+                        <iframe src="https://maps.google.com/maps?q=Pondok%20Jati,%20Sidoarjo&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="relative z-0"></iframe>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-xs font-light">
+                <p>&copy; 2024 Baiti Property. Konsultan Harijanto, SE. All rights reserved.</p>
+                <p class="mt-2 md:mt-0">Dirancang secara eksklusif.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Elegantly Styled Floating WA -->
+    <!-- Ganti nomor di bawah (6281234567890) dengan nomor WA klien -->
+    <a href="https://wa.me/6281234567890?text=Halo%20Pak%20Harijanto,%20saya%20ingin%20konsultasi%20mengenai%20properti." 
+       target="_blank" 
+       class="fixed bottom-6 right-6 bg-brand-accent text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-[0_10px_25px_rgba(34,197,94,0.4)] hover:bg-green-600 hover:scale-110 transition-all duration-300 z-50 wa-float"
+       title="Chat via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Interactivity Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Mobile Menu Handling (Fade in/out logic)
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const closeBtn = document.getElementById('close-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            const openMenu = () => {
+                mobileMenu.classList.remove('hidden');
+                // Small delay to allow display:block to apply before changing opacity
+                setTimeout(() => {
+                    mobileMenu.classList.remove('opacity-0');
+                }, 10);
+                document.body.style.overflow = 'hidden'; // Prevent scroll
+            };
+
+            const closeMenu = () => {
+                mobileMenu.classList.add('opacity-0');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300); // Wait for transition
+                document.body.style.overflow = 'auto'; // Restore scroll
+            };
+
+            mobileBtn.addEventListener('click', openMenu);
+            closeBtn.addEventListener('click', closeMenu);
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // 2. Cinematic Scroll Animation Observer
+            const observerOptions = {
+                root: null,
+                threshold: 0.1, // Trigger earlier
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Unobserve after animating so it stays visible
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+
+            // 3. Navbar Shrink/Style on Scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('py-2', 'bg-white/90');
+                    navbar.classList.remove('py-3', 'glass');
+                } else {
+                    navbar.classList.remove('py-2', 'bg-white/90');
+                    navbar.classList.add('py-3', 'glass');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
